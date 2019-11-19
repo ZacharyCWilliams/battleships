@@ -1,23 +1,24 @@
-class Board() {
-  constructor() {
+class Board {
+  constructor(grid) {
     this.grid = [
-      ["E"], ["E"], ["E"], ["E"], ["E"], ["E"],
-      ["E"], ["E"], ["E"], ["E"], ["E"], ["E"],
-      ["E"], ["E"], ["E"], ["E"], ["E"], ["E"],
-      ["E"], ["E"], ["E"], ["E"], ["E"], ["E"],
-      ["E"], ["E"], ["E"], ["E"], ["E"], ["E"],
-      ["E"], ["E"], ["E"], ["E"], ["E"], ["E"],
-      ["E"], ["E"], ["E"], ["E"], ["E"], ["E"],
-      ["E"], ["E"], ["E"], ["E"], ["E"], ["E"]
+      ["E", "E", "E", "E", "E", "E"],
+      ["E", "E", "E", "E", "E", "E"],
+      ["E", "E", "E", "E", "E", "E"],
+      ["E", "E", "E", "E", "E", "E"],
+      ["E", "E", "E", "E", "E", "E"],
+      ["E", "E", "E", "E", "E", "E"]
       ]
   }
 
-  const placeShips = function(pos, val) {
-    let row, col = pos;
-    this.grid[row, col] = val
+  checkSpace(row, col) {
+    return this.grid[row][col]
   }
 
-  const checkShips = function() {
+  placeShips(row, col, val) {
+    this.grid[row][col] = val
+  }
+
+  checkShips() {
     let flattenedGrid = this.grid.flat()
     let shipsLeft = 0
     for(let i = 0; i < flattenedGrid.length; i++) {
@@ -28,13 +29,35 @@ class Board() {
     return shipsLeft
   }
 
-  const initializeBoardWithShips = function() {
+  initializeBoardWithShips() {
+    
     const numberOfShips = 8
-    while(self.checkShips < numberOfShips) {
-      let randomRow = Math.floor(Math.random() * 10);
-      let randomCol = Math.floor(Math.random() * 10);
-      let pos = [randomRow, randomCol] 
-      placeShips(pos, "S")
+    while (this.checkShips() < numberOfShips) {
+      let randomRow = Math.floor(Math.random() * 6);
+      let randomCol = Math.floor(Math.random() * 6);
+      this.placeShips(randomRow, randomCol, "S")
     }
   }
-}
+
+  attack(row, col) {
+    if (this.checkSpace(row, col) === "S") {
+      this.grid[row][col] = "H"
+      return true
+    } else {
+      this.grid[row][col] = "X"
+      return false
+    }
+  }
+
+  hideShips() {
+    return this.grid.map(array => {
+      return array.map(ele => {
+        if (ele === "S") {
+          return "E"
+        } else {
+         return ele
+        }
+      })
+    })
+  }
+};
