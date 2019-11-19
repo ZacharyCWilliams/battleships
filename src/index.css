@@ -1,0 +1,6 @@
+#game-canvas {
+  width: 600px;
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+}
