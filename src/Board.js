@@ -1,4 +1,5 @@
 class Board {
+  // need to change letters to ships & grids
   constructor(grid) {
     this.grid = [
       ["E", "E", "E", "E", "E", "E"],
@@ -59,5 +60,22 @@ class Board {
         }
       })
     })
+  }
+
+  // need to map divs into html
+  printGrid(grid) {
+    grid.forEach(row => {
+      console.log(row.join(" "))
+    })
+  }
+
+  // not working yet
+  printGameBoard() {
+    this.printGrid(this.hideShips)  
+  }
+
+  // working
+  printRealBoard() {
+    this.printGrid(this.grid)
   }
 };
