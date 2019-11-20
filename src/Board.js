@@ -69,12 +69,10 @@ class Board {
     })
   }
 
-  // not working yet
   printGameBoard() {
-    this.printGrid(this.hideShips)  
+    this.printGrid(this.hideShips())  
   }
 
-  // working
   printRealBoard() {
     this.printGrid(this.grid)
   }
