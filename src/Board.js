@@ -1,6 +1,6 @@
 class Board {
   // need to change letters to ships & grids
-  constructor(grid) {
+  constructor() {
     this.grid = [
       ["E", "E", "E", "E", "E", "E"],
       ["E", "E", "E", "E", "E", "E"],
@@ -31,8 +31,8 @@ class Board {
   }
 
   initializeBoardWithShips() {
-    
-    const numberOfShips = 8
+    console.log("inside initalize ships")
+    const numberOfShips = 5
     while (this.checkShips() < numberOfShips) {
       let randomRow = Math.floor(Math.random() * 6);
       let randomCol = Math.floor(Math.random() * 6);
@@ -64,16 +64,19 @@ class Board {
 
   // need to map divs into html
   printGrid(grid) {
-    grid.forEach(row => {
+    return grid.forEach(row => {
       console.log(row.join(" "))
     })
   }
 
   printGameBoard() {
-    this.printGrid(this.hideShips())  
+    console.log("inside print game board")
+    return this.printGrid(this.hideShips())  
   }
 
   printRealBoard() {
-    this.printGrid(this.grid)
+    return this.printGrid(this.grid)
   }
 };
+
+export default Board
