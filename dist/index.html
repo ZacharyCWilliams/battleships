@@ -4,15 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script type="application/javascript" src="../src/Canvas.js"></script>
+  <script type="application/javascript" src="./src/Canvas.js"></script>
   <script type="application/javascript" src="./main.js"></script>
   <title>Battleships</title>
-  <link rel="stylesheet" type="text/css" href="../src/index.css">
+  <link rel="stylesheet" type="text/css" href="./src/index.css">
 </head>
 <body>
   <div className="outer-div">
     <canvas id="game-canvas"></canvas>
     <button id="start-the-game">Start Game</button>
   </div>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+  
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
+  
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCbEmB1v9omC80gGbsQ8KrCsCcNdZG6pQc",
+      authDomain: "battleships-945a0.firebaseapp.com",
+      databaseURL: "https://battleships-945a0.firebaseio.com",
+      projectId: "battleships-945a0",
+      storageBucket: "battleships-945a0.appspot.com",
+      messagingSenderId: "125964322807",
+      appId: "1:125964322807:web:ce6f9bf9ebbf9a062f50f2",
+      measurementId: "G-QMLJ5K1JZ4"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
 </body>
 </html>
