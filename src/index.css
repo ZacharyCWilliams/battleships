@@ -1,6 +1,11 @@
 #game-canvas {
   width: 600px;
-  display: flex;
-  justify-content: center;
   border: 1px solid black;
+  margin: auto;
+  display: flex;
+}
+
+.outer-div {
+  display: flex;
+  margin: auto;
 }
